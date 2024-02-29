@@ -1,8 +1,6 @@
 # How to use Redux with React?
-
-<img src="./redux.gif" alt="reduxGif">
 [React-Redux](https://react-redux.js.org/introduction/getting-started)
-
+<img src="./redux.gif" alt="reduxGif">
 1-redux i asagidaki kodlarla projemize ekliyoruz
 yarn add redux react-redux or npm install redux react-redux or pnpm install redux react-redux 
 2-src icinde store adinda bir klasör aciyoruz
