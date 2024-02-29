@@ -3,6 +3,7 @@ import { counterReducer } from "./counterReducer";
 import { todoReducer } from "./todoReducer";
 
 //? reduc dev tool için eklendi
+// https://www.npmjs.com/package/redux-devtools-extension
 import { composeWithDevTools } from "@redux-devtools/extension";
 
 //! store 'u olustrduk

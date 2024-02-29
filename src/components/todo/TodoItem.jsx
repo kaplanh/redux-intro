@@ -1,27 +1,51 @@
-import { useState } from "react";
+import React from "react";
+import okLogo from "../../assets/ok.png";
+import deleteLogo from "../../assets/delete.png";
+import { useDispatch, useSelector } from "react-redux";
+import { delTodo, toggleTodo } from "../../store/todoReducer";
 
-const TodoInput = () => {
-    const [text, setText] = useState("");
+const TodoItem = ({ completed, text, id }) => {
+    //? *todlistin consume edilmesi
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setText("");
+    const dispatch = useDispatch();
+
+    const handleToggle = () => {
+        dispatch(toggleTodo(id));
+    };
+
+    const handleDelete = () => {
+        dispatch(delTodo(id));
+    };
+
+    const styled = {
+        textDecoration: completed ? "line-through" : "none",
+        backgroundColor: completed ? "#A9A9A9" : "orange",
+        borderRadius: "5px",
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                className="todo-input"
-                type="text"
-                placeholder="Add Todo"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <button type="submit" className="add-button">
-                Add
-            </button>
-        </form>
+        <div style={styled} className="todo-list">
+            <h2 className="todoText">{text}</h2>
+            <div>
+                <span>
+                    <img
+                        src={okLogo}
+                        className="ok-logo"
+                        alt="ok logo"
+                        onClick={handleToggle}
+                    />
+                </span>
+                <span>
+                    <img
+                        src={deleteLogo}
+                        className="delete-logo"
+                        alt="delete logo"
+                        onClick={handleDelete}
+                    />
+                </span>
+            </div>
+        </div>
     );
 };
 
-export default TodoInput;
+export default TodoItem;
